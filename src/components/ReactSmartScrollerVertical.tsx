@@ -309,7 +309,8 @@ export class ReactSmartScrollerVertical extends React.Component<ReactSmartScroll
                         top: 0,
                         position: 'relative',
                         cursor: 'pointer',
-                        ...this.props.thumb.props.style
+                        ...this.props.thumb.props.style,
+                        ...(this.props.thumbConfig?.calculateThumbSize ? { height } : {})
                     }
                 }
             )

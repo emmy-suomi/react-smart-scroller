@@ -138,6 +138,13 @@ export type ReactSmartScrollerProps = {
 
     thumb?: JSX.Element,
 
+    thumbConfig?: {
+        /**
+         * Set to true to enable adaptive thumb size when usingn a custom thumb.
+         **/
+        calculateThumbSize?: boolean;
+      };    
+
     /**
         Default false.
         Defines direction of scrollbar - horizontal in default.

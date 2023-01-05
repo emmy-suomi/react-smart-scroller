@@ -391,7 +391,8 @@ export class ReactSmartScrollerHorizontal extends React.Component<ReactSmartScro
                         left: 0,
                         position: 'relative',
                         cursor: 'pointer',
-                        ...this.props.thumb.props.style
+                        ...this.props.thumb.props.style,
+                        ...(this.props.thumbConfig?.calculateThumbSize ? { width } : {})
                     }
                 }
             )

@@ -31,23 +31,25 @@ Define your own spacing or columns per scroller width simply passing props.
 ### [Live demo](https://codesandbox.io/embed/quizzical-lalande-tj4uq)
 
 ## Install
+
 `yarn add react-smart-scroller` or `npm install --save react-smart-scroller`
 
 ## Props
 
-Property         | Type                                                     | Description
----------------- | ------------------------------------------------------   | ------------------------
-numCols          | number                                                   | Default: `undefined`.<br> Number of columns per container width.<br>If 1, width of each child is 100%.<br>If not provided, column has childs width.
-style            | React.CssProperties                                      | Default: `undefined`.<br> Custom styles applied to wrapper.
-spacing          | number                                                   | Default: `0`.<br> Space in pixels between elements.
-trackProps       | React.CssProperties                                      | Default: `undefined`.<br> CSS styles to original track.
-thumb            | JSX.Element                                              | Default: `rectangle`.<br> Element that if provided overrides default rectangle.
-vertical         | boolean                                                  | Default: `false`.<br> Defines direction of scrollbar - horizontal by default.<br>If height of ReactSmartScroller is not defined it will automatically resize to 100% and scroll will not be visible. 
-draggable        | boolean                                                  | Default: `false`.<br> Allows to scroll by dragging content.
-pagination       | boolean                                                  | Default: `false`.<br> Renders Slider with children, arrowRight, arrowLeft and dots (number of dots same as children length)
-startAt          | {<br>&nbsp;startIndex: number<br>&nbsp;center?: boolean<br>}| Default: `undefined`.<br> Defines start position of scroller (index of element)
-paginationConfig | {<br>&nbsp; infinite?: boolean,<br>&nbsp; unactiveDotsColor?: string,<br>&nbsp; activeDotColor?: string,<br>&nbsp; transitionTime?: number,<br>&nbsp; minOffsetToChangeSlide?: number,<br>&nbsp; draggable?: boolean,<br>withScroll?: boolean<br>} | Default: `undefined`.<br> `infinite` is optional boolean that allows user to scroll to first element from lsat after clicking next and in opposite way<br> `uncativeDotsColor` is optional string that defines unactive color of dots, default: `gray`<br> `activeDotColor` is optional string that defines active color of dot, default: `green`<br> `transitionTime` is optional number that sets transition time between slides Default: `1s` <br>`minOffsetToChangeSlide` is optional number that defines minimal offset needed to change slide in pixels Default: `150px`<br> `draggable` is optional boolean that enables switching slides by dragging them Default: `false`<br>`withScroll` is optional boolean that enables -> for horizontal scroll pagination and for pagination scrollable inner wrapper<br>`renderNextToEachOther` is optional boolean that enables to render children next to each other
-renderPagination | ({<br>&nbsp; selectedDot: number,<br>&nbsp; childrenCount: number,<br>&nbsp; onNext(): void,<br>&nbsp; onPrev(): void,<br>&nbsp; onDotClick(index: number): void<br>}) => JSX.Element | Default: `undefined`.<br> Replaces original pagination, first element is arrowLeft and last element is arrowRight, elements in between are 'dots'<br> `selectedDot` is an index of selectedDot<br> `childrenCount` number of children  <br>`onNext` function that triggers next slide<br> `onPrev` function that triggers previous slide<br> `onDotClick` is a function that requires index of clicked dot, triggers transition to selected slide
+| Property         | Type                                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| numCols          | number                                                                                                                                                                                                                                             | Default: `undefined`.<br> Number of columns per container width.<br>If 1, width of each child is 100%.<br>If not provided, column has childs width.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| style            | React.CssProperties                                                                                                                                                                                                                                | Default: `undefined`.<br> Custom styles applied to wrapper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| spacing          | number                                                                                                                                                                                                                                             | Default: `0`.<br> Space in pixels between elements.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| trackProps       | React.CssProperties                                                                                                                                                                                                                                | Default: `undefined`.<br> CSS styles to original track.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| thumb            | JSX.Element                                                                                                                                                                                                                                        | Default: `rectangle`.<br> Element that if provided overrides default rectangle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| thumbConfig      | {<br>&nbsp;calculateThumbSize?: boolean<br>}                                                                                                                                                                                                       | Default: `false`.<br> Set to true if you want adaptive size for custom `thumb`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| vertical         | boolean                                                                                                                                                                                                                                            | Default: `false`.<br> Defines direction of scrollbar - horizontal by default.<br>If height of ReactSmartScroller is not defined it will automatically resize to 100% and scroll will not be visible.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| draggable        | boolean                                                                                                                                                                                                                                            | Default: `false`.<br> Allows to scroll by dragging content.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| pagination       | boolean                                                                                                                                                                                                                                            | Default: `false`.<br> Renders Slider with children, arrowRight, arrowLeft and dots (number of dots same as children length)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| startAt          | {<br>&nbsp;startIndex: number<br>&nbsp;center?: boolean<br>}                                                                                                                                                                                       | Default: `undefined`.<br> Defines start position of scroller (index of element)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| paginationConfig | {<br>&nbsp; infinite?: boolean,<br>&nbsp; unactiveDotsColor?: string,<br>&nbsp; activeDotColor?: string,<br>&nbsp; transitionTime?: number,<br>&nbsp; minOffsetToChangeSlide?: number,<br>&nbsp; draggable?: boolean,<br>withScroll?: boolean<br>} | Default: `undefined`.<br> `infinite` is optional boolean that allows user to scroll to first element from lsat after clicking next and in opposite way<br> `uncativeDotsColor` is optional string that defines unactive color of dots, default: `gray`<br> `activeDotColor` is optional string that defines active color of dot, default: `green`<br> `transitionTime` is optional number that sets transition time between slides Default: `1s` <br>`minOffsetToChangeSlide` is optional number that defines minimal offset needed to change slide in pixels Default: `150px`<br> `draggable` is optional boolean that enables switching slides by dragging them Default: `false`<br>`withScroll` is optional boolean that enables -> for horizontal scroll pagination and for pagination scrollable inner wrapper<br>`renderNextToEachOther` is optional boolean that enables to render children next to each other |
+| renderPagination | ({<br>&nbsp; selectedDot: number,<br>&nbsp; childrenCount: number,<br>&nbsp; onNext(): void,<br>&nbsp; onPrev(): void,<br>&nbsp; onDotClick(index: number): void<br>}) => JSX.Element                                                              | Default: `undefined`.<br> Replaces original pagination, first element is arrowLeft and last element is arrowRight, elements in between are 'dots'<br> `selectedDot` is an index of selectedDot<br> `childrenCount` number of children <br>`onNext` function that triggers next slide<br> `onPrev` function that triggers previous slide<br> `onDotClick` is a function that requires index of clicked dot, triggers transition to selected slide                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ## Usage
 
@@ -57,7 +59,7 @@ Let's create our first component
 
     import React from 'react'
     import { ReactSmartScroller } from 'react-smart-scroller'
-    
+
     const renderImages = () => {
         const images = [
             'https://cdn.pixabay.com/photo/2019/06/02/00/46/chapel-4245437__340.jpg',
@@ -66,7 +68,7 @@ Let's create our first component
             'https://cdn.pixabay.com/photo/2013/09/26/23/23/glitter-powder-186829__340.jpg',
             'https://cdn.pixabay.com/photo/2019/04/11/09/50/wave-4119274__340.jpg'
         ]
-    
+
         return images.map((image, index) => (
             <img
                 key={index}
@@ -79,13 +81,13 @@ Let's create our first component
             />
         ))
     }
-    
+
     export const Slider = () => (
         <ReactSmartScroller>
             {renderImages()}
         </ReactSmartScroller>
     )
-    
+
 This is what you'll see in your browser:
 
 <p align="center">
@@ -111,7 +113,7 @@ This is what you'll see in your browser:
             {renderImages()}
         </ReactSmartScroller>
     )
-    
+
 <p align="center">
     <img src="https://cdn.codegate.pl/react-smart-scroller/react-smart-scroller-usage-spacing.png" />
 </p>
@@ -127,7 +129,7 @@ This is what you'll see in your browser:
             {renderImages()}
         </ReactSmartScroller>
     )
-    
+
 <p align="center">
     <img src="https://cdn.codegate.pl/react-smart-scroller/react-smart-scroller-usage-trackProps.png" />
 </p>
@@ -150,7 +152,7 @@ This is what you'll see in your browser:
             {renderImages()}
         </ReactSmartScroller>
     )
-    
+
 <p align="center">
     <img src="https://cdn.codegate.pl/react-smart-scroller/react-smart-scroller-usage-thumb.png" />
 </p>
@@ -181,7 +183,7 @@ This is what you'll see in your browser:
             {renderImages()}
         </ReactSmartScroller>
     )
-    
+
 <p align="center">
     <img src="https://cdn.codegate.pl/react-smart-scroller/react-smart-scroller-usage-draggable.gif" />
 </p>
@@ -193,7 +195,7 @@ This is what you'll see in your browser:
             {renderImages()}
         </ReactSmartScroller>
     )
-    
+
 <p align="center">
     <img src="https://cdn.codegate.pl/react-smart-scroller/react-smart-scroller-pagination.png" />
 </p>
@@ -204,7 +206,7 @@ This is what you'll see in your browser:
         const backgroundColor = selectedDot === index
             ? 'black'
             : 'gray'
-    
+
         return (
             <Dot
                 key={index}
@@ -244,7 +246,7 @@ This is what you'll see in your browser:
             {renderImages()}
         </ReactSmartScroller>
     )
-    
+
 <p align="center">
     <img src="https://cdn.codegate.pl/react-smart-scroller/react-smart-scroller-pagination-renderPagination.gif" />
 </p>

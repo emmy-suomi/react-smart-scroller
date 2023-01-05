@@ -6,3 +6,5 @@ yarn-error.log
 debug.log
 .coveralls.yml
 dist
+build/setupTests.js
+build
